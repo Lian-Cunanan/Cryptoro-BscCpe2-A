@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="Home"></a>
+        Cryptoro<span></span>
+      </div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="viewcurrency.html">Currency</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div id="chatContainer">
+        <div id="chatMessages"></div>
+        <form id="usernameForm">
+            <input type="text" id="usernameInput" placeholder="Enter your username">
+            <button type="submit">Join Chat</button>
+        </form>
+        <form id="chatForm">
+            <input type="text" id="messageInput" placeholder="Type your message">
+            <button type="submit" id="sendButton">Send</button>
+        </form>
+    </div>
+      <footer>
+        <div class="footer">
+        <div class="row">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="row">
+        Cryptoro Copyright © 2024 Cryptoro - All rights reserved 
+        </div>
+        </div>
+        </footer>
+    </div>
+  </body>
+  <script src="\js\chat.js"></script>
+</html>

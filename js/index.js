@@ -1,85 +1,26 @@
-$(document).ready(function() {
-    loadHome();
-
-    $("a[href='#home']").click(function(event) {
-        event.preventDefault();
-        loadHome();
-    });
-
-    $("a[href='#viewcurrency']").click(function(event) {
-        event.preventDefault();
-        loadViewcurrency();
-    });
 
 
-    $("a[href='#viewChat']").click(function(event) {
-        event.preventDefault();
-        loadViewChat();
-    });
-
-    $("a[href='#viewAboutUs']").click(function(event) {
-        event.preventDefault();
-        loadAboutUs();
-    });
-});
-
-
-$(document).ready(function() {
-    $(document).on("click", "#goToMonitoringButton", function(event) {
-        event.preventDefault();
-        loadViewcurrency();
-    });
-});
-
-function loadHome() {
-    $('.content').load('home.html');
-}
-
-function loadViewcurrency() {
-    $('.content').load('viewcurrency.html');
-}
-
-function loadViewChat() {
-    $('.content').load('viewChat.html');
-}
-function loadAboutUs() {
-    $('.content').load('viewAboutUs.html');
-}
-
-function loadHome() {
-    $(".content").html(`
-        <main>
-            <div class="home-content">
-                <img src="landingpic.png" alt="Cryptoro Logo" class="home-image">
-                <h1 class='home-header'>CRYPTORO<span>CryptoCurrency PriceWatch Made Easy</span></h1>
-                <p>From bitcoin to any cryptocurrency you can think of, you can freely roam and view the history of each currency. Browse through thousands of currencies and monitor them at your will! Cryptoro’s purpose is to provide a simple website where everyone can view the prices shown in realtime.</p>
-            </div>
-            <button class="myButton" id="goToMonitoringButton">Go to Monitoring</button>
-        </main>
-    `);
-}
 
 
 
 function loadViewcurrency() {
-
     $(".content").html(`    
         <main>
-        <section class="market-cap">
-        <h1>Crypto Chart</h1>
-        <div class="chart">
-            <canvas id="marketChart"></canvas>
+            <section class="market-cap">
+                <h1>Crypto Chart</h1>
+                <div class="chart">
+                    <canvas id="marketChart"></canvas>
                 </div>
             </section>
             <aside>
                 <div class="search-bar">
-                <div class="time-selection">
-                    <select id="timeSelect">
-                        <option value="24h">24h</option>
-                        <option value="7d">7d</option>
-                        <option value="30min">30min</option>
-                    </select>
-                </div>
+                    <div class="time-selection">
+                        <select id="timeSelect">
+                            <option value="24h">24h</option>
+                            <option value="7d">7d</option>
+                            <option value="30min">30min</option>
+                        </select>
+                    </div>
                     <input type="text" id="pokemonInput" placeholder="Search your Crypto Currency you desire">
                     <button id="searchButton">Search</button>
                 </div>
@@ -101,7 +42,14 @@ function loadViewcurrency() {
         </footer>
     `);
 
-   
+    const cryptoApiKey = 'b27c026e33182c71022b6c84f3d8f1343b7345ea4d2544f3e521fcecca52e7';
+    let chartInstance = null;
+    let countdownTimer = null;
+    let countdownDuration = 10; // in seconds
+    let ws;
+    let username = '';
+
+    // ...rest of your JavaScript code...
 }
 
 function loadViewChat() {

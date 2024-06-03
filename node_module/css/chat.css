@@ -1,0 +1,68 @@
+#chatContainer {
+    width: 80%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background: #0d0d2b; /* Changed background color */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#chatMessages {
+    height: 70%;
+    overflow: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+#usernameForm, #chatForm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#usernameForm input, #chatForm input {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#usernameForm button, #chatForm button {
+    width: 25%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #add8e6; /* Light blue */
+    color: white;
+    cursor: pointer;
+}
+
+#usernameForm button:hover, #chatForm button:hover {
+    background-color: #87ceeb; /* Slightly darker light blue */
+}
+
+.message {
+    max-width: 50%; /* Adjust this to change the maximum width of the chat heads */
+    word-wrap: break-word; /* This will break words to the next line if they are too long */
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background-color: #add8e6;
+    color: white;
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: #87ceeb;
+    color: white;
+}

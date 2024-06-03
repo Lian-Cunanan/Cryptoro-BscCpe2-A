@@ -6,35 +6,42 @@
     <title>Creative Landing Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
- 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
+    <link rel="stylesheet" href="css/style.css">
+
   </head>
   <body>
     <nav>
       <div class="logo">
-        <a href="#home"><img src="logo.png" alt="Home"></a>
+        <a href="index.html"><img src="logo.png" alt="Home"></a>
         Cryptoro<span></span>
       </div>
       <input type="checkbox" id="click">
       <label for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars"></i>
       </label>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#viewcurrency">Currency</a></li>
-        <li><a href="#viewChat">Forum</a></li>
-        <li><a href="#viewAboutUs">About Us</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="viewcurrency.html">Currency</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="about.html">About Us</a></li>
       </ul>
     </nav>
-    <div class="container">
-      <div class="content">
-      <!-- Rest of your content goes here -->
-      </div>
+    <div class="content">
+      <main>
+          <div class="home-content">
+              <img src="landingpic.png" alt="Cryptoro Logo" class="home-image">
+              <h1 class='home-header'>CRYPTORO<span>CryptoCurrency PriceWatch Made Easy</span></h1>
+              <p>From bitcoin to any cryptocurrency you can think of, you can freely roam and view the history of each currency. Browse through thousands of currencies and monitor them at your will! Cryptoro’s purpose is to provide a simple website where everyone can view the prices shown in realtime.</p>
+          </div>
+          <button class="myButton" id="goToMonitoringButton">Go to Monitoring</button>
+      </main>
+          </div>
       <footer>
         <div class="footer">
         <div class="row">
@@ -50,4 +57,5 @@
         </footer>
     </div>
   </body>
+  <script src="\js\index.js"></script>
 </html>

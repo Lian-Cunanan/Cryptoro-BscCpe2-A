@@ -1,130 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Crypto Search</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
-    <style>
-        #chatContainer {
-            position: fixed;
-            bottom: 20vw;
-            right: 20vw;
-            width: 300px;
-            height: 300px;
-            background-color: #862020;
-            overflow-y: auto;
-            padding: 10px;
-        }
-
-        #chatMessages {
-            max-height: 250px;
-            overflow-y: auto;
-        }
-
-        .message {
-            max-width: 70%;
-            margin-bottom: 10px;
-            word-wrap: break-word;
-            border-radius: 8px;
-            padding: 8px 12px;
-            display: inline-block;
-        }
-
-        .message.sent {
-            background-color: #007bff;
-            color: #fff;
-            float: right;
-            width: 100%;
-        }
-
-        .message.received {
-            background-color: #fff;
-            color: #333;
-            float: left;
-            width: 100%;
-        }
-
-        #chatForm {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #messageInput {
-            width: calc(100% - 70px);
-            padding: 5px;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-        }
-
-        #sendButton {
-            padding: 5px 10px;
-            border-radius: 3px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        #chartContainer {
-            width: 100%;
-            max-width: 800px;
-            margin: 1vw ;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #marketCapChart {
-            width: 100%;
-            height: 400px;
-        }
-
-    </style>
-</head>
-<body>
-    <input list="cryptos" id="cryptoInput" placeholder="Enter crypto (e.g., BTC)">
-    <datalist id="cryptos"></datalist>
-
-    <input list="currencies" id="currencyInput" placeholder="Enter currency (e.g., USD)">
-    <datalist id="currencies"></datalist>
-
-    <button onclick="searchCrypto()">Search</button>
-    
-    <!-- Dropdown for selecting time interval -->
-    <select id="intervalSelect" onchange="searchCrypto()">
-        <option value="1h">1 Hour</option>
-        <option value="1d">1 Day</option>
-        <option value="1w">1 Week</option>
-        <option value="1m">1 Month</option>
-    </select>
-    
-    <div id="cryptoData"></div>
-    <div id="chartContainer">
-        <canvas id="marketCapChart"></canvas>
-    </div>
-    <div id="countdown"></div>
-
-    <div id="chatContainer">
-        <div id="chatMessages"></div>
-        <form id="usernameForm">
-            <input type="text" id="usernameInput" placeholder="Enter your username">
-            <button type="submit">Join Chat</button>
-        </form>
-        <form id="chatForm">
-            <input type="text" id="messageInput" placeholder="Type your message">
-            <button type="submit" id="sendButton">Send</button>
-        </form>
-    </div>
-
-    <script>
-        const cryptoApiKey = 'b27c026e33182c71022b6c84f3d8f1343b7345ea4d2544f3e521fcecca52e7';
+const cryptoApiKey = 'b27c026e33182c71022b6c84f3d8f1343b7345ea4d2544f3e521fcecca52e7';
         let chartInstance = null;
         let countdownTimer = null;
         let countdownDuration = 10; // in seconds
-        let ws;
-        let username = '';
+
 
         async function fetchCryptoList() {
             const url = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=${cryptoApiKey}`;
@@ -134,12 +12,27 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                return data.Data.map(item => item.CoinInfo);
+                const cryptos = data.Data.map(item => item.CoinInfo);
+        
+                // Get the datalist element
+                const dataList = document.getElementById('cryptos');
+        
+                // Clear the datalist
+                dataList.innerHTML = '';
+        
+                // Populate the datalist
+                cryptos.forEach(crypto => {
+                    const option = document.createElement('option');
+                    option.value = crypto.Name;
+                    dataList.appendChild(option);
+                });
             } catch (error) {
-                console.error(error);
-                return [];
+                console.error("cannot find crypto list", );
             }
         }
+        
+        // Call the function to fetch the data and populate the datalist
+        fetchCryptoList();
 
         async function fetchCurrencyList() {
             const url = 'https://openexchangerates.org/api/currencies.json';
@@ -149,12 +42,28 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                return Object.entries(data);
+                const currencies = Object.entries(data);
+        
+                // Get the datalist element
+                const dataList = document.getElementById('currencies'); // Replace 'currencies' with the id of your datalist
+        
+                // Clear the datalist
+                dataList.innerHTML = '';
+        
+                // Populate the datalist
+                currencies.forEach(([code, name]) => {
+                    const option = document.createElement('option');
+                    option.value = code;
+                    option.text = name;
+                    dataList.appendChild(option);
+                });
             } catch (error) {
-                console.error(error);
-                return [];
+                console.error("cannot find currency list", error);
             }
         }
+        
+        // Call the function to fetch the data and populate the datalist
+        fetchCurrencyList();
 
         async function fetchMarketCapData(cryptoInput, currency, interval) {
             let url;
@@ -282,40 +191,47 @@
         async function searchCrypto() {
             // Stop the current countdown timer if it's running
             clearInterval(countdownTimer);
-
+        
             const cryptoInput = document.getElementById('cryptoInput').value.toUpperCase();
             const currencyInput = document.getElementById('currencyInput').value.toUpperCase();
             const interval = document.getElementById('intervalSelect').value;
+        
+            // Check if inputs are not empty
+            if (!cryptoInput || !currencyInput) {
+                document.getElementById('cryptoData').innerText = 'Please input both a cryptocurrency and a currency.';
+                return;
+            }
+        
             const url = `https://min-api.cryptocompare.com/data/price?fsym=${cryptoInput}&tsyms=${currencyInput}&api_key=${cryptoApiKey}`;
-
+        
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const result = await response.json();
-
+        
                 document.getElementById('cryptoData').innerHTML = '';
-
+        
                 if (result[currencyInput]) {
                     document.getElementById('cryptoData').innerText = `The exchange rate for ${cryptoInput}/${currencyInput} is ${result[currencyInput]}`;
                     const marketCapData = await fetchMarketCapData(cryptoInput, currencyInput, interval);
                     await displayMarketCapChart(marketCapData, currencyInput);
-
+        
                     // Start a new countdown timer after fetching data
                     startCountdown(countdownDuration);
                 } else {
                     const closestCrypto = await findClosestCrypto(cryptoInput);
-                    document.getElementById('cryptoData').innerText = `No exchange rate found for ${cryptoInput}/${currencyInput}. Did you mean ${closestCrypto}?`;
-
+                    document.getElementById('cryptoData').innerText = `No exchange rate found for ${cryptoInput} or ${currencyInput}. Did you mean ${closestCrypto}?`;
+        
                     // Do not start a new countdown timer if exchange rate is not available
                 }
             } catch (error) {
                 console.error(error);
-                document.getElementById('cryptoData').innerText = 'An error occurred while fetching the data: ' + error.message;
-
-                // Start a new countdown timer in case of error
-                startCountdown(countdownDuration);
+                document.getElementById('cryptoData').innerText = 'The Exchange Doesnt Exist ';
+        
+               
+                
             }
         }
 
@@ -471,6 +387,3 @@
             await initialize();
             startCountdown(countdownDuration);
         };
-    </script>
-</body>
-</html>

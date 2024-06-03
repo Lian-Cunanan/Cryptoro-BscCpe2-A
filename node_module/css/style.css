@@ -1,0 +1,710 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  box-sizing: border-box;
+
+
+}
+
+:root {
+  --bubbleblue: #1fd6ed;
+  --bubblered: #fd4370;
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+nav {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #0d0d2b;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 10px;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80px;
+}
+
+nav .logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--bubbleblue);
+  font-size: 35px;
+  font-weight: bold;
+  position: absolute;
+  left: 150px;
+}
+
+nav .logo img {
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  margin-right: 10px;
+  position: absolute;
+  right: 130px;
+  top: -25px;
+}
+
+nav span {
+  color: var(--bubblered);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 2px;
+}
+
+nav ul li a {
+  color: var(--bubblered);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active, nav ul li a:hover {
+  color: var(--bubbleblue);
+}
+
+nav .menu-btn i {
+  color: var(#000000);
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  nav {
+      padding: 0 40px 0 50px;
+  }
+}
+
+@media (max-width: 920px) {
+  nav .menu-btn i {
+      display: block;
+      position: relative;
+      z-index: 1001;
+  }
+  #click:checked ~ .menu-btn i:before {
+      content: "\f00d";
+  }
+  nav ul {
+      position: fixed;
+      top: 80px;
+      left: -100%;
+      background: #000000;
+      height: 100vh;
+      width: 50%;
+      text-align: center;
+      display: block;
+      transition: all 0.3s ease;
+      overflow-y: auto;
+  }
+  #click:checked ~ ul {
+      left: 0;
+  }
+  nav ul li {
+      width: 100%;
+      margin: 40px 0;
+  }
+  nav ul li a {
+      width: 100%;
+      margin-left: -100%;
+      display: block;
+      font-size: 20px;
+      transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a {
+      margin-left: 0px;
+  }
+  nav ul li a.active, nav ul li a:hover {
+      background: none;
+      color: cyan;
+  }
+}
+
+
+
+.home-content{
+display: flex;
+}
+
+.home-header span {
+text-align: center; /* Center-align the text */
+white-space: nowrap; /* Prevent text from wrapping */ /* Display the span as block-level element */
+font-weight: normal; /* Set font weight to normal */
+font-size: 27px; /* Adjust the font size for the subtitle */
+text-align: center;
+position: absolute;
+left: 5px;
+top: 70px;
+font-style: normal;
+}
+
+.home-content p{
+font-size: 20px;
+}
+
+
+.home-content p {
+font-size: 20px; /* Adjust the font size for the paragraph */
+position: absolute;
+margin-top: 20px; /* Adjust the top margin to create space between header and paragraph */
+left: 90px;
+top: 350px;
+width: 700px; /* Set the width of the paragraph container */
+word-wrap: break-word; /* Allow long words to be broken and wrap onto the next line */
+text-align: justify;
+}
+
+
+.home-content h1 {
+font-size: 60px; /* Adjust the font size as needed */
+position: absolute;
+top: 150px;
+left: 90px;
+font-style: italic;
+}
+
+.myButton{
+position: absolute; /* Position the button absolutely */
+left: 190px; /* Center the button horizontally */
+bottom: 210px;
+transform: translateX(-50%); /* Center the button horizontally */
+padding: 20px 40px; /* Adjust padding */
+background-color: cyan; /* Set button background color */
+color: white; /* Set button text color */
+border: none; /* Remove button border */
+border-radius: 5px; /* Add border radius */
+cursor: pointer; /* Add cursor pointer on hover */
+font-size: 16px; /* Adjust font size */
+border-radius: 1rem;
+
+}
+
+.myButton:hover {
+background-color: gray; /* Change background color on hover */
+}
+
+.container {
+  height: 100vh;
+  text-align: center;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.container:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.253);
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* Currency Section */
+.currency-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.currency-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.currency-controls select {
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.currency-controls button {
+  padding: 10px 20px;
+  background-color: var(--bubbleblue);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.currency-controls button:hover {
+  background-color: var(--bubblered);
+}
+
+.transactions {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px 0;
+  background-color: #2a2a40;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.transactions table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions th, .transactions td {
+  padding: 10px;
+  text-align: left;
+}
+
+.transactions th {
+  background-color: #1d1d2c;
+}
+
+.transactions tr:nth-child(even) {
+  background-color: #2d2d44;
+}
+/* styles.css */
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+background-color: #10102a;
+color: #fff;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+background-color: #1e1e3f;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+}
+
+nav ul {
+list-style: none;
+display: flex;
+gap: 20px;
+}
+
+nav ul li a {
+color: #fff;
+text-decoration: none;
+}
+
+main {
+display: flex;
+padding: 20px;
+}
+
+
+
+.market-cap h1 {
+font-size: 36px;
+margin-top: 70px;
+margin-left: 60px;
+}
+
+.currency-name {
+font-weight: bold;
+}
+
+footer {
+
+padding: 20px;
+text-align: center;
+}
+
+.recent-transactions h2 {
+font-size: 24px;
+}
+
+.transactions-table {
+margin-top: 10px;
+}
+
+.transactions-table .table-header {
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #3a3a5f;
+padding-bottom: 5px;
+}
+
+.content .market-cap {
+margin-top: 10px;
+display: flex;
+white-space: nowrap;
+}
+
+
+.content .search-bar{
+margin-top: 45px;
+}
+
+
+.search-bar .time-selection{
+margin-top: auto;
+margin-right: 100px;
+
+}
+
+
+.team {
+width: 45%; /* Adjusted width to occupy less space */
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: flex-start; /* Align to the left side */
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+padding-left: 200px; /* Increased padding from the left edge */
+}
+
+.teamheading {
+text-align: center;
+padding-bottom: 15px;
+margin-top: -500px; /* Adjusted margin-top to lower the header */
+color: white;
+text-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+font-size: 50px;
+}
+
+.wrapper .outer {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.wrapper .info {
+background: black; /* White background for team info */
+width: 350px; /* Reduced width */
+height: 100px; /* Adjusted height */
+display: flex;
+align-items: center;
+padding: 20px; /* Reduced padding */
+opacity: 0;
+pointer-events: none;
+position: absolute;
+justify-content: space-between;
+border-radius: 100px; /* Adjusted border-radius */
+box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2); /* Reduced box shadow */
+animation: animate 15s linear infinite;
+animation-delay: calc(3s * var(--delay));
+}
+
+.outer:hover .info {
+animation-play-state: paused;
+}
+
+.wrapper .info:last-child {
+animation-delay: calc(-3s * var(--delay));
+}
+
+@keyframes animate {
+0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0.5);
+}
+
+5%,
+20% {
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+}
+
+25%,
+40% {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0%) scale(1);
+}
+
+45%,
+60% {
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.7);
+}
+
+65%,
+100% {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5);
+}
+}
+
+.info .content {
+display: flex;
+align-items: center;
+}
+
+.wrapper .info .img {
+height: 100px;
+width: 100px;
+position: absolute;
+left: -10px;
+background: #000000; /* Black background for images */
+border-radius: 50%;
+padding: 10px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info .img img {
+height: 100%;
+width: 100%;
+border-radius: 50%;
+object-fit: cover;
+}
+
+.info .details {
+margin-left: 80px;
+position: relative;
+}
+
+.details span {
+font-weight: 700;
+font-size: 24px;
+}
+
+.info a {
+font-size: 20px;
+text-decoration: none;
+padding: 10px 24px;
+border-radius: 35px;
+color: #000000;
+background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+transition: all 0.3s ease;
+}
+
+.info .details p {
+margin: 0;
+padding: 15px;
+color: white;
+font-size: 20px;
+}
+
+.info a:hover {
+transform: scale(0.96);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+.teamheading {
+    font-size: 40px;
+}
+
+.wrapper .info {
+    width: 90%;
+    max-width: 350px;
+}
+
+.info .details {
+    margin-left: 60px;
+}
+
+.wrapper .info .img {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    left: -5px;
+    background: black;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+}
+
+.about-container {
+position: absolute;
+top: 50%;
+right: 10%; /* Adjust right positioning */
+transform: translateY(-50%);
+padding: 30px; /* Increase padding to add more space */
+width: 50%;
+height: 90%; /* Adjust height as needed */
+width: 40%; /* Adjust width as needed */
+color: #ffffff;
+box-sizing: border-box;
+}
+
+
+
+.home-image {
+position: absolute;
+width: 500px; /* Adjust size as  needed */
+height: 500px;
+left: 850px;
+bottom: 150px;
+}
+
+.footer {
+position: fixed; /* Fixed positioning */
+bottom: 0; /* Align the footer to the bottom of the screen */
+left: 0; /* Align the footer to the left edge */
+width: 100%; /* Full width */
+background: #000;
+padding: -10px 0px; /* Further reduced padding */
+font-family: 'Play', sans-serif;
+text-align: center;
+z-index: 1000; /* Ensure the footer is above other content */
+}
+
+.footer .row {
+width: 100%;
+margin: 1% 0%;
+padding: 0.6% 0%;
+color: white;
+font-size: 0.8em;
+}
+
+.footer .row a {
+text-decoration: none;
+color: white;
+transition: 0.5s;
+}
+
+.footer .row a:hover {
+color: #fff;
+}
+
+.footer .row ul {
+width: 100%;
+}
+
+.footer .row ul li {
+display: inline-block;
+margin: 0px 30px;
+}
+
+.footer .row a i {
+font-size: 2em;
+margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+.footer {
+  text-align: left;
+  padding: 5%;
+}
+
+.footer .row ul li {
+  display: block;
+  margin: 10px 0px;
+  text-align: left;
+}
+
+.footer .row a i {
+  margin: 0% 3%;
+}
+}
+
+
+#chatMessages {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 70%;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+.message.sent {
+  background-color: #007bff;
+  color: #fff;
+  float: right;
+  width: 100%;
+}
+
+.message.received {
+  background-color: #fff;
+  color: #333;
+  float: left;
+  width: 100%;
+}
+
+
+
+#messageInput {
+  width: calc(100% - 70px);
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+#sendButton {
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+#marketCapChart {
+  width: 100%;
+  height: 400px;
+} 
+
+
+#chartContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 1vw ;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
