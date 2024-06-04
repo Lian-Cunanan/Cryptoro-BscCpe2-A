@@ -121,12 +121,13 @@ input[type="checkbox"] {
       top: 80px;
       left: -100%;
       background: #000000;
-      height: 100vh;
+      height: 80vh;
       width: 50%;
       text-align: center;
       display: block;
       transition: all 0.3s ease;
       overflow-y: auto;
+      overflow-x: hidden;
   }
   #click:checked ~ ul {
       left: 0;
@@ -137,7 +138,7 @@ input[type="checkbox"] {
   }
   nav ul li a {
       width: 100%;
-      margin-left: -100%;
+      margin-left: 50%;
       display: block;
       font-size: 20px;
       transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -156,8 +157,8 @@ input[type="checkbox"] {
 .home-content{
 display: flex;
 }
-
 .home-header span {
+display: flex;
 text-align: center; /* Center-align the text */
 white-space: nowrap; /* Prevent text from wrapping */ /* Display the span as block-level element */
 font-weight: normal; /* Set font weight to normal */
@@ -187,6 +188,7 @@ text-align: justify;
 
 
 .home-content h1 {
+display: flex;
 font-size: 60px; /* Adjust the font size as needed */
 position: absolute;
 top: 150px;
@@ -214,6 +216,60 @@ border-radius: 1rem;
 background-color: gray; /* Change background color on hover */
 }
 
+
+@media (max-width: 600px) {
+  .home-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .home-header h1 {
+    font-size: 20px; /* Reduce the font size */
+    top: 50px; /* Adjust the top position */
+    left: 50px;
+} 
+
+  .home-header span {
+      font-size: 18px;
+      left: 50px;
+      top: 60px;
+  }
+
+  .home-content p {
+      font-size: 16px;
+      left: 50px;
+      top:200px;
+      width: 90%;
+      text-align: left;
+  }
+
+  .home-content h1 {
+      font-size: 30px;
+      top: 100px;
+      left: 0;
+  }
+
+  .myButton {
+      left: 50%;
+      bottom: 320px;
+      padding: 10px 20px;
+      font-size: 14px;
+  
+    }
+}
+@media (max-width: 700px) {
+  .home-image {
+    width: 200px; /* Reduce the width */
+    height: auto; /* Keep the aspect ratio */
+    margin-left: -880px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+}
 .container {
   height: 100vh;
   text-align: center;

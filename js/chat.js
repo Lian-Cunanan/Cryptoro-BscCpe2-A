@@ -116,4 +116,3 @@ async function checkUsernameAvailability(inputUsername) {
         console.error('Error checking username availability:', response.status);
     }
 }
-

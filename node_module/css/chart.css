@@ -17,11 +17,11 @@
 }
 
 .input {
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
     margin-left: 15px;
+
 }
 
 
@@ -36,7 +36,7 @@
 }
 
 #marketChart {
-    width: 10%; /* Takes up the full width of the .chart div */
+    width: 150%; /* Takes up the full width of the .chart div */
     height: 50%; /* Takes up the full height of the .chart div */
 }   
 
