@@ -61,9 +61,13 @@ You will also need to add the following scripts to your HTML file:
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
 ```
 
+## Flowchart
+![Flowchart](flowchart.png)
+
 ## Contributors
 
 - Charles Daniel A. Mirande: Frontend development
 - Kenneth Ivan A. Manarang: Software design
 - Aldrich C. Icat: Backend and server development
 - Lian Vince L. Cunanan: Helped with backend and integrated frontend and backend
+
