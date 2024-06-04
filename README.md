@@ -5,9 +5,8 @@ This is a web application for searching and visualizing cryptocurrency data.
 ## Features
 
 - Real-time cryptocurrency data visualization using Chart.js
-- Interactive chat interface for querying data
+- Safe chat interface for querying data with automatic profanity filtering
 - User-friendly interface with clearly labeled navigation links and input fields
-- Social media integration for sharing interesting discussions or insights
 - Responsive design that displays correctly on a variety of devices and screen sizes
 
 ## Setup

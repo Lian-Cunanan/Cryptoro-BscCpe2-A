@@ -12,17 +12,20 @@ function connectWebSocket() {
         const message = JSON.parse(event.data);
         if (message.type === 'history') {
             message.data.forEach(msg => {
-                displayMessage(msg);
+                censorMessage(msg).then(censoredMsg => {
+                    displayMessage(censoredMsg);
+                });
             });
         } else if (message.type === 'chat') {
-            displayMessage(message);
+            censorMessage(message).then(censoredMsg => {
+                displayMessage(censoredMsg);
+            });
         }
     };
 
     ws.onerror = function(error) {
         console.error('WebSocket error:', error);
     };
-
 
     ws.onclose = function() {
         console.log('WebSocket connection closed');
@@ -37,6 +40,29 @@ function connectWebSocket() {
             messageInput.value = '';
         }
     };
+}
+
+function censorMessage(message) {
+    return new Promise((resolve, reject) => {
+        fetch('https://www.purgomalum.com/service/containsprofanity?text=' + encodeURIComponent(message.message) + '&api_key=Eh5C86CB6PhuCxqwl2WCXUbY59LyEhCU')
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'true') {
+                    fetch('https://www.purgomalum.com/service/plain?text=' + encodeURIComponent(message.message) + '&fill_text=****')
+                        .then(response => response.text())
+                        .then(censoredText => {
+                            message.message = censoredText;
+                            resolve(message);
+                        });
+                } else {
+                    resolve(message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                reject(error);
+            });
+    });
 }
 
 function displayMessage(message) {
@@ -56,16 +82,16 @@ function displayMessage(message) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-    document.getElementById('usernameForm').onsubmit = function(event) {
-        event.preventDefault();
-        const inputUsername = document.getElementById('usernameInput').value.trim();
-        if (inputUsername) {
-            username = inputUsername;
-            document.getElementById('usernameForm').style.display = 'none';
-            document.getElementById('chatForm').style.display = 'block';
-            connectWebSocket();
-        }
-    };
+document.getElementById('usernameForm').onsubmit = function(event) {
+    event.preventDefault();
+    const inputUsername = document.getElementById('usernameInput').value.trim();
+    if (inputUsername) {
+        username = inputUsername;
+        document.getElementById('usernameForm').style.display = 'none';
+        document.getElementById('chatForm').style.display = 'block';
+        connectWebSocket();
+    }
+};
 
 async function checkUsernameAvailability(inputUsername) {
     const response = await fetch('http://127.0.0.1:5500/check-username', {
