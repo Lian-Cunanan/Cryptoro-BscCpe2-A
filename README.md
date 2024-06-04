@@ -4,6 +4,7 @@ This is a web application for searching and visualizing cryptocurrency data.
 
 ## Main Obejectives
 CRYPTORO
+
 This website can provide a real-time cryptocurrency visualization dashboard and offering live price charts and market data. Not only can you track the value of your favorite cryptocurrency’s moment by moment, but you can also convert them to various fiat currencies, like USD and PHP, for easy comparison. With live price charts and market information, this website allows you to stay informed and make informed decisions regarding your cryptocurrency investments. Furthermore, the platform fosters a collaborative environment through a built-in forum, facilitating valuable interaction and knowledge exchange between users.
 
 ## Functionalities
