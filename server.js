@@ -31,4 +31,4 @@ wss.on('connection', function connection(ws) {
     ws.on('error', function(error) {
         console.error('WebSocket error:', error);
     });
-});
+}); 
