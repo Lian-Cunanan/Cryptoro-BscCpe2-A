@@ -12,20 +12,26 @@ This website can provide a real-time cryptocurrency visualization dashboard and 
 ## Functionalities
 
 Landing Page 
-•	Welcome Section
+- 	Welcome Section
+
 Navigation Bar
-•	Provides seamless access to all sections of the website.
+- Provides seamless access to all sections of the website.
+
 Currency 
-•	Real-time cryptocurrency data visualization.
-•	Live cryptocurrency converter to various fiat currencies.
+- 	Real-time cryptocurrency data visualization.
+- Live cryptocurrency converter to various fiat currencies.
+
 Login
-•	Secure access to the forum section.
+- 	Secure access to the forum section.
+
 Forum
-•	Interactive platform for user engagement and discussions.
+- 	Interactive platform for user engagement and discussions.
+
 About Us
-•	Brief introduction to our team and mission.
+- Brief introduction to our team and mission.
+
 Footer
-•	Social Media Links
+- Social Media Links
 
 ## Features
 
