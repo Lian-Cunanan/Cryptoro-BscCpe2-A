@@ -9,6 +9,11 @@ This is a web application for searching and visualizing cryptocurrency data.
 - User-friendly interface with clearly labeled navigation links and input fields
 - Responsive design that displays correctly on a variety of devices and screen sizes
 
+## APIs Used
+
+- [CryptoCompare API](https://min-api.cryptocompare.com/) for fetching real-time cryptocurrency data
+- [Bad Words API](https://apilayer.com/marketplace/bad_words-api) for filtering out profanity in chat messages
+
 ## Setup
 
 To run this project, follow these steps:
