@@ -56,14 +56,15 @@ To run this project, follow these steps:
 You will also need to add the following scripts to your HTML file:
 
 
-## Flowchart
-
-![Flowchart](flowcharts.drawio.png)
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
 ```
+
+## Flowchart
+
+![Flowchart](flowcharts.drawio.png)
 
 ## Contributors
 
