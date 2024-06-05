@@ -37,10 +37,6 @@ Footer
 - User-friendly interface with clearly labeled navigation links and input fields
 - Responsive design that displays correctly on a variety of devices and screen sizes
 
-## Flowchart
-![Flowchart](flowcharts.drawio.png)
-=======
-
 
 ## APIs Used
 
