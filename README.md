@@ -96,8 +96,6 @@ Currency
 - Real-time cryptocurrency data visualization.
 - Live cryptocurrency converter to various fiat currencies.
 
-Login
-- Secure access to the forum section.
 
 Forum
 - Interactive platform for user engagement and discussions.
@@ -150,4 +148,3 @@ You will also need to add the following scripts to your HTML file:
 - Aldrich C. Icat: Backend and server development
 - Lian Vince L. Cunanan: Helped with backend and integrated frontend and backend
 
->>>>>>> 5f320f9508d1e3caf5f8172273489436bed14d60
