@@ -136,7 +136,7 @@ You will also need to add the following scripts to your HTML file:
 ```
 
 ## Flowchart
-![Flowchart](flowchart.png)
+![Flowchart](flowcharts.drawio.png)
 
 ## Contributors
 
