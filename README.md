@@ -38,7 +38,9 @@ Footer
 - Responsive design that displays correctly on a variety of devices and screen sizes
 
 ## Flowchart
-![Flowchart](flowchart.png)
+![Flowchart](flowcharts.drawio.png)
+=======
+
 
 ## APIs Used
 
@@ -135,13 +137,7 @@ You will also need to add the following scripts to your HTML file:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
-```
-
-
-## Flowchart
-![Flowchart](flowcharts.drawio.png)
-=======
-
+``
 
 ## Contributors
 
