@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ## CRYPTORO
 
 This is a web application for searching and visualizing cryptocurrency data.
@@ -21,7 +21,6 @@ Currency
 - Real-time cryptocurrency data visualization.
 - Live cryptocurrency converter to various fiat currencies.
 
-
 Forum
 - Interactive platform for user engagement and discussions.
 
@@ -37,6 +36,9 @@ Footer
 - Safe chat interface for querying data with automatic profanity filtering
 - User-friendly interface with clearly labeled navigation links and input fields
 - Responsive design that displays correctly on a variety of devices and screen sizes
+
+## Flowchart
+![Flowchart](flowchart.png)
 
 ## APIs Used
 
@@ -135,8 +137,11 @@ You will also need to add the following scripts to your HTML file:
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
 ```
 
+
 ## Flowchart
 ![Flowchart](flowcharts.drawio.png)
+=======
+
 
 ## Contributors
 
