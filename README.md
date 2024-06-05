@@ -37,6 +37,10 @@ Footer
 - User-friendly interface with clearly labeled navigation links and input fields
 - Responsive design that displays correctly on a variety of devices and screen sizes
 
+## Flowchart
+
+![Flowchart](flowcharts.drawio.png)
+
 
 ## APIs Used
 
@@ -62,9 +66,6 @@ You will also need to add the following scripts to your HTML file:
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
 ```
 
-## Flowchart
-
-![Flowchart](flowcharts.drawio.png)
 
 ## Contributors
 
