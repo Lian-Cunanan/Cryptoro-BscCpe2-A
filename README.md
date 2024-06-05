@@ -53,9 +53,10 @@ To run this project, follow these steps:
 
 1. Open your terminal.
 2. Navigate to the project directory.
-3. Run the command `node server.js`.
-4. Go to the `node_modules` folder.
-5. Find `index.html` and open it using live server.
+3. Install the necessary npm packages by running `npm install` and `npm install ws`.
+4. Run the command `node server.js`.
+5. Go to the `node_modules` folder.
+6. Find `index.html` and open it using live server.
 
 You will also need to add the following scripts to your HTML file:
 

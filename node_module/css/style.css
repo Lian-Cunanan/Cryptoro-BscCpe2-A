@@ -629,7 +629,16 @@ color: #ffffff;
 box-sizing: border-box;
 }
 
-
+@media (max-width: 600px) {
+  .about-container {
+      top: 120%; /* Adjust top positioning for smaller screens */
+      right: 2%; /* Adjust right positioning for smaller screens */
+      width: 90%; /* Increase width for smaller screens */
+      height: 80%; /* Adjust height for smaller screens */
+      padding: 20px; /* Decrease padding for smaller screens */
+      font-size: 13px;
+  }
+}
 
 .home-image {
 position: absolute;
