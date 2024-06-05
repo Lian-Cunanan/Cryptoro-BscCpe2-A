@@ -20,8 +20,6 @@ Currency
 - Real-time cryptocurrency data visualization.
 - Live cryptocurrency converter to various fiat currencies.
 
-Login
-- Secure access to the forum section.
 
 Forum
 - Interactive platform for user engagement and discussions.
@@ -55,6 +53,11 @@ To run this project, follow these steps:
 5. Find `index.html` and open it using live server.
 
 You will also need to add the following scripts to your HTML file:
+
+
+## Flowchart
+
+![Flowchart](flowcharts.drawio.png)
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
